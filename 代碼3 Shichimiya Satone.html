@@ -92,6 +92,15 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
    
 100% { background-color: #FFB6C1; } /* 回到粉紅色 */
 }
+
+#bottom-right-img {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        width: 150px;  /* 調整圖片大小 */
+        height: auto;  /* 保持圖片比例 */
+        z-index: 1000; /* 確保圖片位於前面 */
+    }
 </style>
 <div style="position: fixed;
     width: 150px;
@@ -166,8 +175,10 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
     與面對現實之間做出選擇。在經歷了與勇太和六花的互動後，智音最終選擇了接受現實，並決定放下對勇太的愛慕。這
     對她來說是一個艱難的過程，但同時也是她個人成長的標誌。她明白到自己的感情無法得到回應，因此，她將這段愛情藏
     在心底，繼續以她自己的方式生活下去。</p>
-    
-    <img src=4be48745e0bbaae97e2a4b4088c11845.png alt="角色圖像" class="right-bottom">
+
+    <img src="/mnt/data/image.png" alt="右下角圖片" id="bottom-right-img">
+
+
 <hr>
 </body>
 </html>
