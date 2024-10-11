@@ -70,6 +70,20 @@ button {
     border: 5px solid #FF359A;
     border-radius: 8px;
 }
+animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
+}
+
+
+}
+@keyframes bg-color-change {
+    0% { background-color: #FFB6C1; }   /* 粉紅色 */
+    
+    
+50% { background-color: #FFD700; }  /* 金黃色 */
+    
+   
+100% { background-color: #FFB6C1; } /* 回到粉紅色 */
+}
 </style>
 <div style="position: fixed;
     width: 150px;
