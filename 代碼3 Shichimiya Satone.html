@@ -69,6 +69,15 @@ button {
     display: block; /* 讓按鈕獨占一行 */
     border: 5px solid #FF359A;
     border-radius: 8px;
+     transition: all 0.3s ease; /* 添加平滑過渡效果 */
+}
+
+/* 當懸停時的動畫效果 */
+button:hover {
+    background-color: #FF359A; /* 改變背景顏色 */
+    color: #FFAAD5;            /* 改變文字顏色 */
+    transform: scale(1.1);     /* 放大按鈕 */
+    box-shadow: 0 0 10px #FF359A; /* 添加陰影效果 */
 }
 body {
 animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
