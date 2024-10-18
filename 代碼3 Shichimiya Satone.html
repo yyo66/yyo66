@@ -128,6 +128,7 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
             width: 100px;
             height: 100px;
             transition: transform 1s ease; /* 添加平滑移動的過渡效果 */
+            z-index: 999; /* 確保圖片顯示在最前面 */
         }
 
 #bottom-right-img {
@@ -251,25 +252,20 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
         }
     });
 });
- // 獲取圖片元素
-        const floatingImg = document.querySelector('.floating-img');
+function randomMove() {
+    const img = document.querySelector('.floating-img');
+    if (img) {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const randomX = Math.floor(Math.random() * (windowWidth - img.width));
+        const randomY = Math.floor(Math.random() * (windowHeight - img.height));
+        
+        img.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
+}
 
-        // 設置圖片隨機移動的函數
-        function randomMove() {
-            // 取得視窗的寬度和高度
-            const windowWidth = window.innerWidth;
-            const windowHeight = window.innerHeight;
-
-            // 隨機生成圖片的位置（使用 Math.random() 來隨機生成新的座標）
-            const randomX = Math.floor(Math.random() * (windowWidth - 100)); // 減去圖片的寬度避免超出邊界
-            const randomY = Math.floor(Math.random() * (windowHeight - 100)); // 減去圖片的高度避免超出邊界
-
-            // 設置圖片的移動
-            floatingImg.style.transform = `translate(${randomX}px, ${randomY}px)`;
-        }
-
-        // 每隔幾秒隨機移動圖片
-        setInterval(randomMove, 3000); // 每 3 秒移動一次
+// 每3秒隨機移動圖片
+setInterval(randomMove, 3000);
 </script>
 
 
