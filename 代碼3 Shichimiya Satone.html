@@ -125,32 +125,11 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 /* 背景圖片飄移的樣式 */
 .floating-img {
     position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100px; /* 調整圖片大小 */
     height: auto;
-    animation: float-around 10s ease-in-out infinite; /* 設置圖片上下左右飄移的動畫 */
+    transition: transform 3s ease-in-out; /* 設置圖片每次移動的動畫過渡效果 */
 }
 
-/* 定義圖片上下左右飄移的動畫 */
-@keyframes float-around {
-    0% {
-        transform: translate(0, 0); /* 圖片從左下角開始 */
-    }
-    25% {
-        transform: translate(calc(100vw - 100px), 0); /* 向右移動到視窗的最右邊 */
-    }
-    50% {
-        transform: translate(calc(100vw - 100px), calc(100vh - 100px)); /* 向下移動到右下角 */
-    }
-    75% {
-        transform: translate(0, calc(100vh - 100px)); /* 向左移動到左下角 */
-    }
-    100% {
-        transform: translate(0, 0); /* 回到初始位置 */
-    }
-}
-    
 #bottom-right-img {
         position: fixed;
         bottom: 1px;
@@ -272,7 +251,25 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
         }
     });
 });
+// 設置隨機移動的圖片
+const floatingImg = document.querySelector('.floating-img');
 
+// 設置圖片隨機移動的函數
+function randomMove() {
+    // 取得視窗的寬度和高度
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    // 隨機生成圖片的位置（使用 Math.random() 來隨機生成新的座標）
+    const randomX = Math.floor(Math.random() * (windowWidth - 100)); // 減去圖片的寬度避免超出邊界
+    const randomY = Math.floor(Math.random() * (windowHeight - 100)); // 減去圖片的高度避免超出邊界
+
+    // 設置圖片的移動
+    floatingImg.style.transform = `translate(${randomX}px, ${randomY}px)`;
+}
+
+// 每隔幾秒隨機移動圖片
+setInterval(randomMove, 3000); // 每 3 秒移動一次
 </script>
 
 
