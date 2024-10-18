@@ -252,24 +252,25 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
     });
 });
 // 設置隨機移動的圖片
-const floatingImg = document.querySelector('.floating-img');
+// 設置隨機移動的圖片
+    const floatingImg = document.querySelector('.floating-img');
 
-// 設置圖片隨機移動的函數
-function randomMove() {
-    // 取得視窗的寬度和高度
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+    // 設置圖片隨機移動的函數
+    function randomMove() {
+        // 取得視窗的寬度和高度
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
 
-    // 隨機生成圖片的位置（使用 Math.random() 來隨機生成新的座標）
-    const randomX = Math.floor(Math.random() * (windowWidth - 100)); // 減去圖片的寬度避免超出邊界
-    const randomY = Math.floor(Math.random() * (windowHeight - 100)); // 減去圖片的高度避免超出邊界
+        // 隨機生成圖片的位置（使用 Math.random() 來隨機生成新的座標）
+        const randomX = Math.floor(Math.random() * (windowWidth - 100)); // 減去圖片的寬度避免超出邊界
+        const randomY = Math.floor(Math.random() * (windowHeight - 100)); // 減去圖片的高度避免超出邊界
 
-    // 設置圖片的移動
-    floatingImg.style.transform = `translate(${randomX}px, ${randomY}px)`;
-}
+        // 設置圖片的移動
+        floatingImg.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
 
-// 每隔幾秒隨機移動圖片
-setInterval(randomMove, 3000); // 每 3 秒移動一次
+    // 每隔幾秒隨機移動圖片
+    setInterval(randomMove, 3000); // 每 3 秒移動一次
 </script>
 
 
