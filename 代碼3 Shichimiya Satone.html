@@ -139,6 +139,13 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
         height: auto;  /* 保持圖片比例 */
         z-index: 1000; /* 確保圖片位於前面 */
     }
+
+.bouncing-img {
+    position: absolute;
+    width: 100px; /* 設定圖片的寬度 */
+    height: 100px; /* 設定圖片的高度 */
+}
+    
 #new-image {
     display: none;
     position: fixed;
@@ -252,20 +259,40 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
         }
     });
 });
-function randomMove() {
-    const img = document.querySelector('.floating-img');
-    if (img) {
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        const randomX = Math.floor(Math.random() * (windowWidth - img.width));
-        const randomY = Math.floor(Math.random() * (windowHeight - img.height));
-        
-        img.style.transform = `translate(${randomX}px, ${randomY}px)`;
+const img = document.querySelector('.bouncing-img');
+let posX = 100;  // 圖片的初始水平位置
+let posY = 100;  // 圖片的初始垂直位置
+let velX = 2;    // 圖片的水平移動速度
+let velY = 2;    // 圖片的垂直移動速度
+const imgWidth = img.offsetWidth;
+const imgHeight = img.offsetHeight;
+
+function moveImage() {
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    
+    // 更新圖片的位置
+    posX += velX;
+    posY += velY;
+    
+    // 檢查圖片是否碰到螢幕邊緣，並進行反彈
+    if (posX + imgWidth >= windowWidth || posX <= 0) {
+        velX = -velX;  // 反轉水平速度
     }
+    
+    if (posY + imgHeight >= windowHeight || posY <= 0) {
+        velY = -velY;  // 反轉垂直速度
+    }
+
+    // 將新位置應用於圖片
+    img.style.transform = `translate(${posX}px, ${posY}px)`;
+
+    // 設定下一幀的動畫
+    requestAnimationFrame(moveImage);
 }
 
-// 每3秒隨機移動圖片
-setInterval(randomMove, 3000);
+// 開始移動圖片
+moveImage();
 </script>
 
 
