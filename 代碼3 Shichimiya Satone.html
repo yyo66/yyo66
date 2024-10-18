@@ -124,11 +124,11 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 
 /* 背景圖片飄移的樣式 */
 .floating-img {
-    position: absolute;
-    width: 100px; /* 調整圖片大小 */
-    height: auto;
-    transition: transform 3s ease-in-out; /* 設置圖片每次移動的動畫過渡效果 */
-}
+            position: absolute; /* 讓圖片能夠在頁面上移動 */
+            width: 100px;
+            height: 100px;
+            transition: transform 1s ease; /* 添加平滑移動的過渡效果 */
+        }
 
 #bottom-right-img {
         position: fixed;
@@ -251,26 +251,25 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
         }
     });
 });
-// 設置隨機移動的圖片
-// 設置隨機移動的圖片
-    const floatingImg = document.querySelector('.floating-img');
+ // 獲取圖片元素
+        const floatingImg = document.querySelector('.floating-img');
 
-    // 設置圖片隨機移動的函數
-    function randomMove() {
-        // 取得視窗的寬度和高度
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
+        // 設置圖片隨機移動的函數
+        function randomMove() {
+            // 取得視窗的寬度和高度
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
 
-        // 隨機生成圖片的位置（使用 Math.random() 來隨機生成新的座標）
-        const randomX = Math.floor(Math.random() * (windowWidth - 100)); // 減去圖片的寬度避免超出邊界
-        const randomY = Math.floor(Math.random() * (windowHeight - 100)); // 減去圖片的高度避免超出邊界
+            // 隨機生成圖片的位置（使用 Math.random() 來隨機生成新的座標）
+            const randomX = Math.floor(Math.random() * (windowWidth - 100)); // 減去圖片的寬度避免超出邊界
+            const randomY = Math.floor(Math.random() * (windowHeight - 100)); // 減去圖片的高度避免超出邊界
 
-        // 設置圖片的移動
-        floatingImg.style.transform = `translate(${randomX}px, ${randomY}px)`;
-    }
+            // 設置圖片的移動
+            floatingImg.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
 
-    // 每隔幾秒隨機移動圖片
-    setInterval(randomMove, 3000); // 每 3 秒移動一次
+        // 每隔幾秒隨機移動圖片
+        setInterval(randomMove, 3000); // 每 3 秒移動一次
 </script>
 
 
@@ -283,7 +282,7 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
     
     <!-- 底部飄移圖片 -->
     <div class="background">
-        <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="floating-img" alt="飄移圖片">
+         <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" alt="Floating Image" class="floating-img">
     </div>
 </body>
 </html>
