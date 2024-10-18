@@ -78,7 +78,7 @@ button {
     display: block; /* 讓按鈕獨占一行 */
     border: 5px solid #FF359A;
     border-radius: 8px;
-     transition: all 0.3s ease; /* 添加平滑過渡效果 */
+    transition: all 0.3s ease; /* 添加平滑過渡效果 */
 }
 
 /* 當懸停時的動畫效果 */
@@ -110,15 +110,11 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
         height: auto;  /* 保持圖片比例 */
         z-index: 1000; /* 確保圖片位於前面 */
     }
-#character-text {
-        display: none;
-        font-size: 36px;
-        color: #FF359A;
-        background-color: rgba(255, 170, 213, 0.8);
-        padding: 10px;
-        margin-top: 20px;
-        border-radius: 10px;
-        text-shadow: 2px 2px 5px #888;
+#text-image {
+            display: none;
+            width: 500px;
+            margin: 20px auto;
+            z-index: 1001;
         }
 </style>
 <div style="position: fixed;
@@ -197,28 +193,38 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
     在心底，繼續以她自己的方式生活下去。</p>
 
    <img src="4be48745e0bbaae97e2a4b4088c11845.png" alt="右下角圖片" id="bottom-right-img">
-    
-    <div id="character-text"><h1>七宮智音: <br>
-    「我是蘇菲婭寧·SP·撒旦七世，中二病患者！」<br>
-    富樫勇太的童年好友，內心深處隱藏著對他的感情。</h1>
-</div>
 
-    <audio id="character-audio">
-    <source src="005_春日部つむぎ（ノーマル）_私の名前はしちみや….wav" type="audio/mpeg">
+</script>
+    <!-- 角色圖片 -->
+<img id="bottom-right-img" src="/mnt/data/image.png" alt="角色圖片">
+
+<!-- 隱藏的文字圖片 -->
+<img id="text-image" src="未命名設計.png" alt="文字圖片">
+
+<!-- 音訊文件 -->
+<audio id="audio-player">
+    <source src="005_春日部つむぎ（ノーマル）_私の名前はしちみや….wav" type="audio/mp3">
+
 </audio>
 
+<!-- 點及圖片撥放聲音並顯示角色介紹 -->
 <script>
     const img = document.getElementById('bottom-right-img');
-    const text = document.getElementById('character-text');
-    const audio = document.getElementById('character-audio');
+    const textImage = document.getElementById('text-image');
+    const audioPlayer = document.getElementById('audio-player');
 
-    // 點擊圖片顯示文字和播放音效
+    // 點擊圖片顯示文字圖片並播放音訊
     img.addEventListener('click', () => {
-        // 切換文字顯示
-        text.style.display = text.style.display === 'block' ? 'none' : 'block';
+        // 顯示或隱藏文字圖片
+        textImage.style.display = textImage.style.display === 'block' ? 'none' : 'block';
         
-        // 播放音效
-        audio.play();
+        // 播放或暫停音訊
+        if (textImage.style.display === 'block') {
+            audioPlayer.play();
+        } else {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0; // 重置音訊時間
+        }
     });
 </script>
 
