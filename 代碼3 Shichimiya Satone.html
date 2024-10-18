@@ -210,7 +210,7 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
     對她來說是一個艱難的過程，但同時也是她個人成長的標誌。她明白到自己的感情無法得到回應，因此，她將這段愛情藏
     在心底，繼續以她自己的方式生活下去。</p>
 
-   <img src="4be48745e0bbaae97e2a4b4088c11845.png" alt="右下角圖片" id="bottom-right-img">
+<img src="4be48745e0bbaae97e2a4b4088c11845.png" alt="右下角圖片" id="bottom-right-img">
 
 <!-- 隱藏的文字圖片 -->
 <img id="new-image" src="未命名設計.png" alt="文字圖片">
@@ -221,6 +221,11 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 
 </audio>
 
+
+<!-- Bouncing Image -->
+ <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="bouncing-img" alt="Bouncing Image" />
+
+<script>
 <!-- 點及圖片撥放聲音並顯示角色介紹 -->
 document.addEventListener("DOMContentLoaded", function() {
     const img = document.getElementById('bottom-right-img');
@@ -237,10 +242,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });    
-<!-- Bouncing Image -->
- <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="bouncing-img" alt="Bouncing Image" />
-
-<script>
+    
 document.addEventListener("DOMContentLoaded", function() {
 const img = document.querySelector('.bouncing-img');
 let posX = 100;  // 初始水平位置
