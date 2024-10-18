@@ -16,6 +16,7 @@
 .標題置中 {
     text-align: center;
 }
+    
 * {
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
 }
@@ -23,6 +24,7 @@
 
 
 body {
+    height: 2000px; /* 增加頁面長度用於滾動測試 */
     font-family: 'Noto Sans TC', cursive;
 }
     
@@ -37,6 +39,7 @@ h1 {
     border: 5px solid #FF0000;
     border-radius: 20px;
 }
+    
 h2 {
     font-size: 36px;
     font-weight: bold;
@@ -47,6 +50,7 @@ h2 {
     border: 6px solid #FF359A;
     border-radius: 10px;
 }
+    
 p, span, address {
     font-size: 24px;
     font-weight: bold;
@@ -56,6 +60,7 @@ p, span, address {
     text-align: center;
     padding: 10px;
 }
+    
 ul { 
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
     list-style-type: none; /* 移除圓點符號 */
@@ -66,6 +71,7 @@ li {
      cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
     margin-bottom: 10px; /* 讓每個按鈕之間有間隔 */
 }
+    
 button {
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
     color: #FF359A;
@@ -88,12 +94,13 @@ button:hover {
     transform: scale(1.1);     /* 放大按鈕 */
     box-shadow: 0 0 10px #FF359A; /* 添加陰影效果 */
 }
+    
 body {
 animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 }
 
 @keyframes bg-color-change {
-    0% { background-color: #FFB6C1; }   /* 粉紅色 */
+0% { background-color: #FFB6C1; }   /* 粉紅色 */
     
     
 50% { background-color: #FFD700; }  /* 金黃色 */
@@ -102,41 +109,23 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 100% { background-color: #FFB6C1; } /* 回到粉紅色 */
 }
 
-/* 主內容的樣式 */
-.content {
-    position: relative;
-    z-index: 1; /* 確保主內容在背景圖片的上方 */
-    padding: 20px;
-    color: black;
-    font-family: Arial, sans-serif;
-}
-
-
-/* 背景圖片飄移的樣式 */
-.floating-img {
-            position: absolute; /* 讓圖片能夠在頁面上移動 */
-            width: 100px;
-            height: 100px;
-            transition: transform 1s ease; /* 添加平滑移動的過渡效果 */
-            z-index: 999; /* 確保圖片顯示在最前面 */
-        }
-
 #bottom-right-img {
-        position: fixed;
-        bottom: 1px;
-        right: 1px;
-        width: 350px;  /* 調整圖片大小 */
-        height: auto;  /* 保持圖片比例 */
-        z-index: 1000; /* 確保圖片位於前面 */
+    position: fixed;
+    bottom: 1px;
+    right: 1px;
+    width: 350px;  /* 調整圖片大小 */
+    height: auto;  /* 保持圖片比例 */
+    z-index: 1000; /* 確保圖片位於前面 */
     }
 
     .bouncing-img {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            top: 100px;
-            left: 100px;
-        }
+     position: fixed; /* 固定圖片在視窗上 */
+     width: 100px;
+    height: 100px;
+    top: 100px;
+    left: 100px;
+    z-index: -1; /* 保證圖片位於背景下，不會覆蓋其他元素 */
+  }
     
 #new-image {
     display: none;
@@ -223,8 +212,6 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 
    <img src="4be48745e0bbaae97e2a4b4088c11845.png" alt="右下角圖片" id="bottom-right-img">
 
-
-
 <!-- 隱藏的文字圖片 -->
 <img id="new-image" src="未命名設計.png" alt="文字圖片">
 
@@ -235,58 +222,58 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 </audio>
 
 <!-- 點及圖片撥放聲音並顯示角色介紹 -->
-  <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="bouncing-img" alt="Bouncing Image" />
     
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const img = document.querySelector('.bouncing-img');
-            let posX = 100;  // 初始水平位置
-            let posY = 100;  // 初始垂直位置
-            let velX = 2;    // 水平移動速度
-            let velY = 2;    // 垂直移動速度
+<!-- Bouncing Image -->
+ <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="bouncing-img" alt="Bouncing Image" />
 
-            // 獲取圖片寬高
-            const imgWidth = img.offsetWidth;
-            const imgHeight = img.offsetHeight;
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+const img = document.querySelector('.bouncing-img');
+let posX = 100;  // 初始水平位置
+let posY = 100;  // 初始垂直位置
+let velX = 2;    // 水平移動速度
+let velY = 2;    // 垂直移動速度
 
-            function moveImage() {
-                const windowWidth = window.innerWidth;
-                const windowHeight = window.innerHeight;
+// 獲取圖片寬高
+const imgWidth = img.offsetWidth;
+const imgHeight = img.offsetHeight;
 
-                // 更新圖片位置
-                posX += velX;
-                posY += velY;
+function moveImage() {
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
 
-                // 檢查圖片是否碰到螢幕邊緣，並進行反彈
-                if (posX + imgWidth >= windowWidth || posX <= 0) {
-                    velX = -velX;  // 反轉水平速度
-                }
+// 更新圖片位置
+posX += velX;
+posY += velY;
 
-                if (posY + imgHeight >= windowHeight || posY <= 0) {
-                    velY = -velY;  // 反轉垂直速度
-                }
+// 檢查圖片是否碰到螢幕邊緣，並進行反彈
+if (posX + imgWidth >= windowWidth || posX <= 0) {
+    velX = -velX;  // 反轉水平速度
+}
 
-                // 更新圖片位置
-                img.style.transform = `translate(${posX}px, ${posY}px)`;
+if (posY + imgHeight >= windowHeight || posY <= 0) {
+    velY = -velY;  // 反轉垂直速度
+}
 
-                // 設定下一幀的動畫
-                requestAnimationFrame(moveImage);
-            }
+// 更新圖片位置，保持圖片在視窗內
+img.style.left = `${posX}px`;
+img.style.top = `${posY}px`;
 
-            // 開始圖片移動
-            moveImage();
-        });
-    </script>
+// 設定下一幀的動畫
+requestAnimationFrame(moveImage);
+}
 
-
-
+// 開始圖片移動
+moveImage();
+});
+</script>
+    
 <hr>
+    
 <address>
 <p>如有版權及內容問題請點下方連結</p>
 <a href="mailto:caiyoujia446@gmail.com">聯繫作者</a>
 </address>
     
-  <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="bouncing-img" alt="Floating Image" />
- 
 </body>
 </html>
