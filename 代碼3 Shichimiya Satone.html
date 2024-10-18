@@ -222,7 +222,21 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 </audio>
 
 <!-- 點及圖片撥放聲音並顯示角色介紹 -->
+document.addEventListener("DOMContentLoaded", function() {
+    const img = document.getElementById('bottom-right-img');
+    const textImage = document.getElementById('new-image');
+    const audioPlayer = document.getElementById('audio-player');
     
+    img.addEventListener('click', () => {
+        textImage.style.display = textImage.style.display === 'block' ? 'none' : 'block';
+        if (textImage.style.display === 'block') {
+            audioPlayer.play();
+        } else {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+        }
+    });
+});    
 <!-- Bouncing Image -->
  <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="bouncing-img" alt="Bouncing Image" />
 
