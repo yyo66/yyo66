@@ -130,11 +130,13 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
         z-index: 1000; /* 確保圖片位於前面 */
     }
 
-.bouncing-img {
-    position: absolute;
-    width: 100px; /* 設定圖片的寬度 */
-    height: 100px; /* 設定圖片的高度 */
-}
+    .bouncing-img {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            left: 100px;
+        }
     
 #new-image {
     display: none;
@@ -221,7 +223,7 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 
    <img src="4be48745e0bbaae97e2a4b4088c11845.png" alt="右下角圖片" id="bottom-right-img">
 
-</script>
+
 
 <!-- 隱藏的文字圖片 -->
 <img id="new-image" src="未命名設計.png" alt="文字圖片">
