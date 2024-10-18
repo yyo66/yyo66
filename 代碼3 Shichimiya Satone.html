@@ -110,6 +110,16 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
         height: auto;  /* 保持圖片比例 */
         z-index: 1000; /* 確保圖片位於前面 */
     }
+#character-text {
+        display: none;
+        font-size: 36px;
+        color: #FF359A;
+        background-color: rgba(255, 170, 213, 0.8);
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 10px;
+        text-shadow: 2px 2px 5px #888;
+        }
 </style>
 <div style="position: fixed;
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
@@ -187,6 +197,32 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
     在心底，繼續以她自己的方式生活下去。</p>
 
    <img src="4be48745e0bbaae97e2a4b4088c11845.png" alt="右下角圖片" id="bottom-right-img">
+    
+    <div id="character-text">
+    七宮智音: <br>
+    「我是蘇菲婭寧·SP·撒旦七世，中二病患者！」<br>
+    富樫勇太的童年好友，內心深處隱藏著對他的感情。
+</div>
+
+    <audio id="character-audio">
+    <source src="path_to_your_audio_file.mp3" type="audio/mpeg">
+    您的瀏覽器不支持音頻播放。
+</audio>
+
+<script>
+    const img = document.getElementById('bottom-right-img');
+    const text = document.getElementById('character-text');
+    const audio = document.getElementById('character-audio');
+
+    // 點擊圖片顯示文字和播放音效
+    img.addEventListener('click', () => {
+        // 切換文字顯示
+        text.style.display = text.style.display === 'block' ? 'none' : 'block';
+        
+        // 播放音效
+        audio.play();
+    });
+</script>
 
 
 <hr>
