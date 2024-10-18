@@ -111,12 +111,11 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
         z-index: 1000; /* 確保圖片位於前面 */
     }
 #new-image {
-            position: absolute;
-            top: 70%; /* 根據角色圖片頭部的位置調整 */
-            left: 60%;
-            transform: translate(-50%, -50%);
-            width: 100px; /* 調整新圖片的大小 */
-        }
+    position: absolute;
+    top: 0;  /* 將新圖片定位到容器的頂部 */
+    left: 0; /* 將新圖片定位到容器的左邊 */
+    width: 100px; /* 調整新圖片的大小 */
+}
 </style>
 <div style="position: fixed;
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
