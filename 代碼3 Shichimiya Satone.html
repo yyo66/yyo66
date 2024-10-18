@@ -111,16 +111,6 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
     font-family: Arial, sans-serif;
 }
 
-/* 背景容器 */
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1; /* 背景位於最下層 */
-}
 
 /* 背景圖片飄移的樣式 */
 .floating-img {
@@ -303,9 +293,7 @@ moveImage();
 <a href="mailto:caiyoujia446@gmail.com">聯繫作者</a>
 </address>
     
-    <!-- 底部飄移圖片 -->
-    <div class="background">
-         <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" alt="Floating Image" class="floating-img">
-    </div>
+  <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="bouncing-img" alt="Floating Image" />
+ 
 </body>
 </html>
