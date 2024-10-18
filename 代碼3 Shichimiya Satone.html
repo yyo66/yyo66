@@ -208,23 +208,22 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 
 <!-- 點及圖片撥放聲音並顯示角色介紹 -->
 <script>
+  document.addEventListener("DOMContentLoaded", function() {
     const img = document.getElementById('bottom-right-img');
-    const textImage = document.getElementById('text-image');
+    const textImage = document.getElementById('new-image');
     const audioPlayer = document.getElementById('audio-player');
-
-    // 點擊圖片顯示文字圖片並播放音訊
+    
     img.addEventListener('click', () => {
-        // 顯示或隱藏文字圖片
         textImage.style.display = textImage.style.display === 'block' ? 'none' : 'block';
-        
-        // 播放或暫停音訊
         if (textImage.style.display === 'block') {
             audioPlayer.play();
         } else {
             audioPlayer.pause();
-            audioPlayer.currentTime = 0; // 重置音訊時間
+            audioPlayer.currentTime = 0;
         }
     });
+});
+
 </script>
 
 
