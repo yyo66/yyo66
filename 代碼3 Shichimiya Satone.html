@@ -102,17 +102,37 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 100% { background-color: #FFB6C1; } /* 回到粉紅色 */
 }
 
-.floating-img {
-    position: absolute;
-    bottom: 0; /* 固定在底部 */
-    left: 0; /* 從左邊開始 */
-    width: 100px; /* 可以調整圖片大小 */
-    height: auto;
-    z-index: -1; /* 設置圖片在最底層 */
-    animation: float-horizontal 5s ease-in-out infinite; /* 設置動畫 */
+/* 主內容的樣式 */
+.content {
+    position: relative;
+    z-index: 1; /* 確保主內容在背景圖片的上方 */
+    padding: 20px;
+    color: black;
+    font-family: Arial, sans-serif;
 }
 
-/* 定義圖片左右飄移的動畫 */
+/* 背景容器 */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* 背景位於最下層 */
+}
+
+/* 背景圖片飄移的樣式 */
+.floating-img {
+    position: absolute;
+    bottom: 0; /* 固定在背景的底部 */
+    left: 0; /* 從左邊開始 */
+    width: 100px; /* 圖片大小 */
+    height: auto;
+    animation: float-horizontal 8s ease-in-out infinite; /* 設置圖片飄移動畫 */
+}
+
+/* 定義圖片的左右飄移動畫 */
 @keyframes float-horizontal {
     0% {
         transform: translateX(0); /* 從左側開始 */
@@ -258,6 +278,8 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 </address>
     
     <!-- 底部飄移圖片 -->
- <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="floating-img" alt="飄移圖片">
+    <div class="background">
+        <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="floating-img" alt="飄移圖片">
+    </div>
 </body>
 </html>
