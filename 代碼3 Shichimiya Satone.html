@@ -125,26 +125,32 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 /* 背景圖片飄移的樣式 */
 .floating-img {
     position: absolute;
-    bottom: 0; /* 固定在背景的底部 */
-    left: 0; /* 從左邊開始 */
-    width: 100px; /* 圖片大小 */
+    bottom: 0;
+    left: 0;
+    width: 100px; /* 調整圖片大小 */
     height: auto;
-    animation: float-horizontal 8s ease-in-out infinite; /* 設置圖片飄移動畫 */
+    animation: float-around 10s ease-in-out infinite; /* 設置圖片上下左右飄移的動畫 */
 }
 
-/* 定義圖片的左右飄移動畫 */
-@keyframes float-horizontal {
+/* 定義圖片上下左右飄移的動畫 */
+@keyframes float-around {
     0% {
-        transform: translateX(0); /* 從左側開始 */
+        transform: translate(0, 0); /* 圖片從左下角開始 */
+    }
+    25% {
+        transform: translate(calc(100vw - 100px), 0); /* 向右移動到視窗的最右邊 */
     }
     50% {
-        transform: translateX(calc(100vw - 100px)); /* 移動到視窗最右邊 (減去圖片寬度) */
+        transform: translate(calc(100vw - 100px), calc(100vh - 100px)); /* 向下移動到右下角 */
+    }
+    75% {
+        transform: translate(0, calc(100vh - 100px)); /* 向左移動到左下角 */
     }
     100% {
-        transform: translateX(0); /* 再次回到左側 */
+        transform: translate(0, 0); /* 回到初始位置 */
     }
 }
-
+    
 #bottom-right-img {
         position: fixed;
         bottom: 1px;
