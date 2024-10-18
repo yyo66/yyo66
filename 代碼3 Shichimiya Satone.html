@@ -235,57 +235,48 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 </audio>
 
 <!-- 點及圖片撥放聲音並顯示角色介紹 -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const img = document.getElementById('bottom-right-img');
-    const textImage = document.getElementById('new-image');
-    const audioPlayer = document.getElementById('audio-player');
+  <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="bouncing-img" alt="Bouncing Image" />
     
-    img.addEventListener('click', () => {
-        textImage.style.display = textImage.style.display === 'block' ? 'none' : 'block';
-        if (textImage.style.display === 'block') {
-            audioPlayer.play();
-        } else {
-            audioPlayer.pause();
-            audioPlayer.currentTime = 0;
-        }
-    });
-});
-const img = document.querySelector('.bouncing-img');
-let posX = 100;  // 圖片的初始水平位置
-let posY = 100;  // 圖片的初始垂直位置
-let velX = 2;    // 圖片的水平移動速度
-let velY = 2;    // 圖片的垂直移動速度
-const imgWidth = img.offsetWidth;
-const imgHeight = img.offsetHeight;
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const img = document.querySelector('.bouncing-img');
+            let posX = 100;  // 初始水平位置
+            let posY = 100;  // 初始垂直位置
+            let velX = 2;    // 水平移動速度
+            let velY = 2;    // 垂直移動速度
 
-function moveImage() {
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    
-    // 更新圖片的位置
-    posX += velX;
-    posY += velY;
-    
-    // 檢查圖片是否碰到螢幕邊緣，並進行反彈
-    if (posX + imgWidth >= windowWidth || posX <= 0) {
-        velX = -velX;  // 反轉水平速度
-    }
-    
-    if (posY + imgHeight >= windowHeight || posY <= 0) {
-        velY = -velY;  // 反轉垂直速度
-    }
+            // 獲取圖片寬高
+            const imgWidth = img.offsetWidth;
+            const imgHeight = img.offsetHeight;
 
-    // 將新位置應用於圖片
-    img.style.transform = `translate(${posX}px, ${posY}px)`;
+            function moveImage() {
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
 
-    // 設定下一幀的動畫
-    requestAnimationFrame(moveImage);
-}
+                // 更新圖片位置
+                posX += velX;
+                posY += velY;
 
-// 開始移動圖片
-moveImage();
-</script>
+                // 檢查圖片是否碰到螢幕邊緣，並進行反彈
+                if (posX + imgWidth >= windowWidth || posX <= 0) {
+                    velX = -velX;  // 反轉水平速度
+                }
+
+                if (posY + imgHeight >= windowHeight || posY <= 0) {
+                    velY = -velY;  // 反轉垂直速度
+                }
+
+                // 更新圖片位置
+                img.style.transform = `translate(${posX}px, ${posY}px)`;
+
+                // 設定下一幀的動畫
+                requestAnimationFrame(moveImage);
+            }
+
+            // 開始圖片移動
+            moveImage();
+        });
+    </script>
 
 
 
