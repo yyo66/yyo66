@@ -5,6 +5,7 @@
 <meta name="description" content="Satone">
 <meta name="keywords" content="HTML,Shichimiya Satone">
 <meta name="author" content="yyo66">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">   
 <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
@@ -17,10 +18,11 @@
     text-align: center;
 }
     
+/*全局選擇器覆蓋      */
 * {
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
+    box-sizing: border-box; /* 確保 padding 和 border 不影響元素的寬度和高度 */
 }
-/*全局選擇器覆蓋      */
 
 
 body {
@@ -129,6 +131,21 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
     bottom: 60px;  
     left: 770px; 
     width: 700px;
+}
+
+/* 媒體查詢：針對小於768px寬度的螢幕進行樣式調整（如手機） */
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 30px; /* 在手機上調小標題字體大小 */
+    }
+
+    .floating-img {
+        width: 50px; /* 在手機上讓飄移圖片變小 */
+    }
+
+    p {
+        font-size: 18px; /* 減少文字大小，讓閱讀更舒適 */
+    }
 }
 </style>
 <div style="position: fixed;
