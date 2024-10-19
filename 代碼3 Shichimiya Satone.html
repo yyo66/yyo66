@@ -1,584 +1,293 @@
-<!DOCTYPE html> 
-
+<!DOCTYPE html>
 <html>
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="description" content="Satone">
-
 <meta name="keywords" content="HTML,Shichimiya Satone">
-
-<meta name="author" content="yyo66">
-
+<meta name="author" content="yyo66"> 
 <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 
-
-
 </head>
-
 <body> 
-
-
 
 <a id="first"></a>
 
-
-
 <style>
-
 .標題置中 {
-
     text-align: center;
-
 }
-
     
-
 /*全局選擇器覆蓋      */
-
 * {
-
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
-
     box-sizing: border-box; /* 確保 padding 和 border 不影響元素的寬度和高度 */
-
 }
-
-
-
 
 
 body {
-
     height: 2000px; /* 增加頁面長度用於滾動測試 */
-
     font-family: 'Noto Sans TC', cursive;
-
 }
-
     
-
 h1 {
-
     font-size: 50px;
-
     font-weight: bold;
-
     color: #FF0000;
-
     background-color: #FF7575;
-
     display: inline-block;
-
     text-shadow: 3px 3px 5px #888;
-
     padding: 10px;
-
     border: 5px solid #FF0000;
-
     border-radius: 20px;
-
 }
-
     
-
 h2 {
-
     font-size: 36px;
-
     font-weight: bold;
-
     color: #FF359A;
-
     background-color: #FFAAD5;
-
     display: inline-block;
-
     padding: 5px;
-
     border: 6px solid #FF359A;
-
     border-radius: 10px;
-
 }
-
     
-
 p, span, address {
-
     font-size: 24px;
-
     font-weight: bold;
-
     max-width: 700px;
-
     margin: 0 auto;
-
     color: #FF95CA;
-
     text-align: center;
-
     padding: 10px;
-
 }
-
     
-
 ul { 
-
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
-
     list-style-type: none; /* 移除圓點符號 */
-
     padding-left: 0; /* 去掉內邊距 */
-
 }
-
-
 
 li {
-
      cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
-
     margin-bottom: 10px; /* 讓每個按鈕之間有間隔 */
-
 }
-
     
-
 button {
-
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
-
     color: #FF359A;
-
     font-size: 24px;
-
     font-weight: bold;
-
     background-color: #FFAAD5;
-
     width: 150px;
-
     height: 63px;
-
     padding: 10px;
-
     display: block; /* 讓按鈕獨占一行 */
-
     border: 5px solid #FF359A;
-
     border-radius: 8px;
-
     transition: all 0.3s ease; /* 添加平滑過渡效果 */
-
 }
-
-
 
 /* 當懸停時的動畫效果 */
-
 button:hover {
-
     background-color: #FF359A; /* 改變背景顏色 */
-
     color: #FFAAD5;            /* 改變文字顏色 */
-
     transform: scale(1.1);     /* 放大按鈕 */
-
     box-shadow: 0 0 10px #FF359A; /* 添加陰影效果 */
-
 }
-
     
-
 body {
-
 animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
-
 }
-
-
 
 @keyframes bg-color-change {
-
     0% { background-color: #FFBB77; }   /* 橙色 */
-
     50% { background-color: #FFD700; }  /* 金黃色 */
-
     100% { background-color: #FFBB77; } /* 回到橙色 */
-
 }
-
-
 
 #bottom-right-img {
-
     position: fixed;
-
     bottom: 1px;
-
     right: 1px;
-
     width: 350px;  /* 調整圖片大小 */
-
     height: auto;  /* 保持圖片比例 */
-
     z-index: 1000; /* 確保圖片位於前面 */
-
     }
 
-
-
     .bouncing-img {
-
      position: fixed; /* 固定圖片在視窗上 */
-
      width: 100px;
-
     height: 100px;
-
     top: 100px;
-
     left: 100px;
-
     z-index: -1; /* 保證圖片位於背景下，不會覆蓋其他元素 */
-
   }
-
     
-
 #new-image {
-
     display: none;
-
     position: fixed;
-
     bottom: 60px;  
-
     left: 770px; 
-
     width: 700px;
-
 }
 
-
 </style>
-
 <div style="position: fixed;
-
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
-
     width: 150px;
-
     height: 450px; 
-
     background-color: #FF7575;
-
     border: 5px solid #FF0000;
-
     border-radius: 8px; padding: 10px;">
-
         <ul>
-
             <li><button onclick="location.href='#first'">⚝網頁頂端</button></li>
-
             <li><button onclick="location.href='#jump-to-h2'">⚝角色介紹</button></li>
-
             <li><button onclick="location.href='#jump-to-h2-2'">⚝角色個性</button></li>
-
             <li><button onclick="location.href='#jump-to-h2-3'">⚝外貌穿著</button></li>
-
             <li><button onclick="location.href='#jump-to-h2-4'">⚝中二宣言</button></li>
-
             <li><button onclick="location.href='#jump-to-h2-5'">⚝動畫劇情</button></li>
-
         </ul>
-
     </div>
-
 </div>
-
 <br>
 
-
-
 <div class="標題置中">
-
     <h1>七宮智音 (Shimiya Satone)</h1>
-
 </div>
-
 <br>
-
 <a href="https://truth.bahamut.com.tw/s01/201403/f49dd293cd050466c5d99d7cd260e557.JPG"  style="cursor: url('rsz_31a17d1ec68735956e90142258823ebb.png'), auto;">
-
     <img src="f49dd293cd050466c5d99d7cd260e557.jpg" width="65%" style="display: block; margin: auto; cursor: url('rsz_31a17d1ec68735956e90142258823ebb.png'), auto;"/>
-
 </a>
-
 <p>圖源: 巴哈姆特</p>
-
 <hr>
-
 <br>
-
 <div class="標題置中">
-
      <h2 id="jump-to-h2">角色介紹</h2>
-
 </div>
-
 <p>是動畫《中二病也要談戀愛！》的角色，她是富樫勇太的童年好友。智音和勇太一樣，曾經是一名“中二病”患者，
-
     自稱為“蘇菲婭寧·SP·撒旦七世”、“魔法魔王少女索菲亞”、“管理魔王魔法七聖地的少女”等稱號，並使用幻想力量
-
     來逃避現實生活的挑戰和困難。兒時沉溺於幻想，而成為了中二病患者，也把中二思想過分的帶入生活中，和富樫
-
     勇太關係十分好。以前和富樫勇太在一起的時候就已經對勇太充滿了好感， 只是表現完全不坦率，一直都沒有將自
-
     己的心聲說出來。</p>
-
 <br>
-
 <div class="標題置中">
-
     <h2  id="jump-to-h2-2">角色個性</h2> 
-
 </div>
-
 <p>個性開朗且有些笨拙，是一個善良到連惡魔都忍不住傷害的女孩。喜歡將“有沒有哭泣，心痛不痛”看作與天使的作戰。
-
     十分樂天，雖然十分中二，但有著比同齡人還要成熟的情感觀。她是一個充滿幻想和活力的人，總是以中二的姿態面
-
     對世界。雖然她表現得很開心，但她內心其實隱藏著對勇太的感情，並且面臨著接受現實和維持幻想之間的掙扎。</p>
-
 <br>
-
 <div class="標題置中">
-
     <h2 id="jump-to-h2-3">外貌穿著</h2> 
-
 </div>
-
 <p>智音有著粉紅色的頭髮綁成了雙環結構（環形辮），裝扮有貓咪髮卡、稍微改造成了魔法魔王少女樣式的制服、繫著好
-
     像魔物般的長圍巾（第二次出現因為太熱了沒有帶）、黑色長筒襪、腰間有一個一直帶著的貓狀小袋子、裙子下面有短
-
     短的黑色的短裹腿恤，比起雙馬尾，其實更喜歡側馬尾髮型。但因為執著於中二病，而以雙馬尾的髮型示人，她十分喜
-
     歡各種帶有奇幻氣息的服飾品，身上也經常帶著魔法棒。</p>
-
  <br>
-
  <div class="標題置中"> 
-
     <h2 id="jump-to-h2-4">中二宣言</h2> 
-
  </div>
-
 <p>Cherub（智天使）</p>
-
     <br>
-
 <p>詠唱:Seraph（熾天使）</p>
-
     <br>
-
 <p>降臨:Physical Linkage（世間萬物為我所用）</p>
-
 <br>
-
 <div class="標題置中">
-
     <h2 id="jump-to-h2-5">動畫劇情</h2> 
-
 </div>
-
 <p>在動畫第二季中，在動畫第二季《中二病也要談戀愛！戀》中，智音轉學到勇太的學校，重新出現在他的生活中。雖然
-
    他們的友誼迅速恢復，但智音逐漸發現，勇太已經和另一名女孩，小鳥遊六花，建立了特殊的感情。這讓智音不得不面
-
    對自己內心深處一直隱藏的情感——她對勇太的愛慕之情。智音在多年以來一直把這份感情埋藏在心中，而與勇太的再次
-
    相遇讓她不得不直視這段未曾表露的愛。智音的最大掙扎在於她對勇太的感情以及她對“中二病”幻想世界的依戀。她始
-
     終抱著中二病的幻想，作為一種逃避現實的方式。對於智音而言，“蘇菲婭寧·SP·撒旦七世”的身份讓她有勇氣面對現實
-
     中的困難。然而，當她發現勇太已經在現實世界中找到了另一個依靠（六花），她開始動搖，這使得她必須在維持幻想
-
     與面對現實之間做出選擇。在經歷了與勇太和六花的互動後，智音最終選擇了接受現實，並決定放下對勇太的愛慕。這
-
     對她來說是一個艱難的過程，但同時也是她個人成長的標誌。她明白到自己的感情無法得到回應，因此，她將這段愛情藏
-
     在心底，繼續以她自己的方式生活下去。</p>
-
-
 
 <img src="4be48745e0bbaae97e2a4b4088c11845.png" alt="右下角圖片" id="bottom-right-img">
 
-
-
 <!-- 隱藏的文字圖片 -->
-
 <img id="new-image" src="未命名設計.png" alt="文字圖片">
 
-
-
 <!-- 音訊文件 -->
-
 <audio id="audio-player">
-
     <source src="005_春日部つむぎ（ノーマル）_私の名前はしちみや….wav" type="audio/mpeg">
-
-
 
 </audio>
 
 
-
-
-
 <!-- Bouncing Image -->
-
  <img src="a95bf4fbc073f1f9cec554884bfd9e8f.jpg" class="bouncing-img" alt="Bouncing Image" />
 
-
-
 <script>
-
 <!-- 點及圖片撥放聲音並顯示角色介紹 -->
-
 document.addEventListener("DOMContentLoaded", function() {
-
     const img = document.getElementById('bottom-right-img');
-
     const textImage = document.getElementById('new-image');
-
     const audioPlayer = document.getElementById('audio-player');
-
     
-
     img.addEventListener('click', () => {
-
         textImage.style.display = textImage.style.display === 'block' ? 'none' : 'block';
-
         if (textImage.style.display === 'block') {
-
             audioPlayer.play();
-
         } else {
-
             audioPlayer.pause();
-
             audioPlayer.currentTime = 0;
-
         }
-
     });
-
 });    
-
     
-
 document.addEventListener("DOMContentLoaded", function() {
-
 const img = document.querySelector('.bouncing-img');
-
 let posX = 100;  // 初始水平位置
-
 let posY = 100;  // 初始垂直位置
-
 let velX = 2;    // 水平移動速度
-
 let velY = 2;    // 垂直移動速度
 
-
-
 // 獲取圖片寬高
-
 const imgWidth = img.offsetWidth;
-
 const imgHeight = img.offsetHeight;
 
-
-
 function moveImage() {
-
     const windowWidth = window.innerWidth;
-
     const windowHeight = window.innerHeight;
 
-
-
 // 更新圖片位置
-
 posX += velX;
-
 posY += velY;
 
-
-
 // 檢查圖片是否碰到螢幕邊緣，並進行反彈
-
 if (posX + imgWidth >= windowWidth || posX <= 0) {
-
     velX = -velX;  // 反轉水平速度
-
 }
-
-
 
 if (posY + imgHeight >= windowHeight || posY <= 0) {
-
     velY = -velY;  // 反轉垂直速度
-
 }
-
-
 
 // 更新圖片位置，保持圖片在視窗內
-
-img.style.left = ${posX}px;
-
-img.style.top = ${posY}px;
-
-
+img.style.left = `${posX}px`;
+img.style.top = `${posY}px`;
 
 // 設定下一幀的動畫
-
 requestAnimationFrame(moveImage);
-
 }
 
-
-
 // 開始圖片移動
-
 moveImage();
-
 });
-
 </script>
-
     
-
 <hr>
-
     
-
 <address>
-
 <p>如有版權及內容問題請點下方連結</p>
-
 <a href="mailto:caiyoujia446@gmail.com">聯繫作者</a>
-
 </address>
-
     
-
 </body>
-
 </html>
