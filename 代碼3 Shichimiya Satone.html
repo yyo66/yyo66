@@ -134,19 +134,59 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 }
 
 /* 媒體查詢：針對小於768px寬度的螢幕進行樣式調整（如手機） */
+/* 基本樣式維持不變 */
+
 @media only screen and (max-width: 768px) {
+    /* 調整標題大小 */
     h1 {
-        font-size: 30px; /* 在手機上調小標題字體大小 */
+        font-size: 28px;
     }
 
+    h2 {
+        font-size: 24px;
+    }
+
+    p, span, address {
+        font-size: 18px; /* 調整字體大小 */
+    }
+
+    /* 調整側邊按鈕區域 */
+    div[style*="position: fixed"] {
+        width: 100px;
+        height: auto;
+        padding: 5px;
+    }
+
+    button {
+        font-size: 18px;  /* 調整按鈕字體大小 */
+        width: 100px;
+        height: auto;
+        padding: 5px;
+    }
+
+    /* 確保圖片不會超出螢幕範圍 */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 背景圖片大小調整 */
     .floating-img {
-        width: 50px; /* 在手機上讓飄移圖片變小 */
+        width: 70px; /* 調整圖片大小以適應手機 */
     }
 
-    p {
-        font-size: 18px; /* 減少文字大小，讓閱讀更舒適 */
+    #bottom-right-img {
+        width: 250px;  /* 調整右下角圖片 */
+    }
+
+    /* 調整新圖片的大小和位置 */
+    #new-image {
+        width: 90vw;
+        left: 5vw;
+        bottom: 10vh;
     }
 }
+
 </style>
 <div style="position: fixed;
     cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
