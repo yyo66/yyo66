@@ -132,33 +132,55 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
     left: 770px; 
     width: 700px;
 }
-/* 桌面版樣式 */
-@media (min-width: 800px) {
-    .button-container {
-        display: flex;
-        flex-direction: row; /* 桌面版按鈕水平排列 */
-        justify-content: center;
-        gap: 15px;
+
+@media only screen and (max-width: 768px) {
+    /* 調整標題大小 */
+    h1 {
+        font-size: 28px;
     }
 
-    .button {
-        width: auto; /* 桌面版按鈕寬度保持自適應 */
-        padding: 10px 30px;
-    }
-}
-
-/* 移動設備樣式 */
-@media (max-width: 799px) {
-    .button-container {
-        display: flex;
-        flex-direction: column; /* 手機版按鈕垂直排列 */
-        align-items: center;
-        gap: 10px; /* 控制按鈕之間的間距 */
+    h2 {
+        font-size: 24px;
     }
 
-    .button {
-        width: 80%; /* 手機版按鈕寬度設為螢幕寬度的 80% */
-        max-width: 300px; /* 設置按鈕的最大寬度 */
+    p, span, address {
+        font-size: 18px; /* 調整字體大小 */
+    }
+
+    /* 調整側邊按鈕區域 */
+    div[style*="position: fixed"] {
+        width: 100px;
+        height: auto;
+        padding: 5px;
+    }
+
+    button {
+        font-size: 18px;  /* 調整按鈕字體大小 */
+        width: 100px;
+        height: auto;
+        padding: 5px;
+    }
+
+    /* 確保圖片不會超出螢幕範圍 */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 背景圖片大小調整 */
+    .floating-img {
+        width: 70px; /* 調整圖片大小以適應手機 */
+    }
+
+    #bottom-right-img {
+        width: 250px;  /* 調整右下角圖片 */
+    }
+
+    /* 調整新圖片的大小和位置 */
+    #new-image {
+        width: 90vw;
+        left: 5vw;
+        bottom: 10vh;
     }
 }
     
