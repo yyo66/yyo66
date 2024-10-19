@@ -133,9 +133,6 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
     width: 700px;
 }
 
-/* 媒體查詢：針對小於768px寬度的螢幕進行樣式調整（如手機） */
-/* 基本樣式維持不變 */
-
 @media only screen and (max-width: 768px) {
     /* 調整標題大小 */
     h1 {
@@ -166,7 +163,7 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 
     /* 確保圖片不會超出螢幕範圍 */
     img {
-        max-width: 100%;
+        max-width: 100%; /* 確保圖片在手機上自適應寬度 */
         height: auto;
     }
 
@@ -181,11 +178,20 @@ animation: bg-color-change 10s infinite; /* 10秒的循環動畫 */
 
     /* 調整新圖片的大小和位置 */
     #new-image {
-        width: 90vw;
+        width: 90vw; /* 使用 viewport 寬度來確保圖片自適應 */
         left: 5vw;
         bottom: 10vh;
     }
+
+    /* Bouncing Image 在手機上的調整 */
+    .bouncing-img {
+        width: 50px;  /* 縮小圖片大小以適應手機 */
+        height: 50px;
+        top: 50px;
+        left: 50px;
+    }
 }
+
 
 </style>
 <div style="position: fixed;
