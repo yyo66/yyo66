@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七宮智音的魔法世界</title>
+    <meta name="description" content="七宮智音(Shichimiya Satone) - 中二病也要談戀愛！角色介紹">
+    <meta name="keywords" content="七宮智音,中二病也要談戀愛,Shichimiya Satone,動漫角色,魔法少女">
+    <meta name="author" content="yyo66"> 
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全局樣式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: url('rsz_231a17d1ec68735956e90142258823ebb.png'), auto;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #ffcce6 0%, #ffd1a4 100%);
+            color: #666;
+            padding-left: 180px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* 魔法背景效果 */
+        .magic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.6;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><defs><pattern id="hearts" patternUnits="userSpaceOnUse" width="100" height="100"><path fill="%23ff9ecb" d="M50,30.5c0-8.6-7-15.5-15.5-15.5c-4.8,0-9,2.2-11.8,5.6C20.8,12.5,16,9,10.5,9C1.9,9-5,17.4-5,28c0,8.2,5.1,15.4,12.5,18.2C9.5,49,12,52.7,12,57c0,6.1-4.9,11-11,11s-11-4.9-11-11c0-4.3,2.5-8,6.5-10.8C-10,33.4-15,26.2-15,18C-15,7.4-6.6-1,5-1c5.5,0,10.2,2.5,13.5,6.4C21.8,2.5,26.5,0,32,0C41.6,0,50,7.4,50,18V30.5z" transform="translate(50 50)"></path></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"></rect></svg>');
+        }
+        
+        /* 導航欄樣式 - 改為更可愛的風格 */
+        .navbar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 170px;
+            height: 100vh;
+            background: rgba(255, 170, 213, 0.9);
+            border-right: 5px solid #FF359A;
+            padding: 20px 10px;
+            z-index: 1000;
+            overflow-y: auto;
+            box-shadow: 5px 0 15px rgba(255, 105, 180, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+        }
+        
+        .navbar li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .navbar button {
+            color: #FF359A;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(to bottom, #FFAAD5, #ffcce6);
+            width: 100%;
+            height: 60px;
+            padding: 5px;
+            border: 3px solid #FF359A;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .navbar button:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #ff9ecb, #ffcce6, #ff9ecb);
+            z-index: -1;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .navbar button:hover {
+            background: linear-gradient(to bottom, #FF359A, #FF6BB5);
+            color: #fff;
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 8px 15px rgba(255, 105, 180, 0.4);
+        }
+        
+        .navbar button:hover:before {
+            transform: translateX(0);
+        }
+        
+        /* 主內容區樣式 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #FF359A, #FFAAD5, #FF359A);
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .center-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+            color: #FF0066;
+            background: linear-gradient(to right, #FF6BB5, #FFAAD5);
+            display: inline-block;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            padding: 15px 40px;
+            border: 5px solid #FF0066;
+            border-radius: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 15px rgba(255, 0, 102, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1:after {
+            content: '♡魔法魔王少女♡';
+            position: absolute;
+            bottom: -20px;
+            right: 10px;
+            font-size: 16px;
+            color: #FF0066;
+        }
+        
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FF359A;
+            background: linear-gradient(to right, #FFAAD5, #ffcce6);
+            display: inline-block;
+            padding: 12px 30px;
+            border: 4px solid #FF359A;
+            border-radius: 20px;
+            margin: 15px 0;
+            box-shadow: 0 5px 12px rgba(255, 53, 154, 0.3);
+            position: relative;
+        }
+        
+        h2:before, h2:after {
+            content: '♡';
+            margin: 0 10px;
+            color: #FF359A;
+        }
+        
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #666;
+            text-align: justify;
+            padding: 0 10px;
+        }
+        
+        .main-image {
+            display: block;
+            max-width: 85%;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 5px solid #FFAAD5;
+            position: relative;
+        }
+        
+        .main-image:hover {
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.4);
+        }
+        
+        /* 右下角圖片樣式 */
+        #bottom-right-img {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 250px;
+            height: auto;
+            z-index: 900;
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 5px 10px rgba(255, 105, 180, 0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        #bottom-right-img:hover {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 8px 15px rgba(255, 105, 180, 0.7));
+        }
+        
+        /* 彈跳圖片樣式 */
+        .bouncing-img {
+            position: fixed;
+            width: 120px;
+            height: auto;
+            z-index: 800;
+            animation: bounce 5s ease-in-out infinite;
+        }
+        
+        /* 隱藏的文字圖片 */
+        #new-image {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            max-width: 80%;
+            z-index: 1000;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 5px solid #FFAAD5;
+            animation: popIn 0.5s ease-out;
+        }
+        
+        /* 頁腳樣式 */
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            background: rgba(255, 170, 213, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+        
+        address {
+            font-style: normal;
+        }
+        
+        address a {
+            color: #FF359A;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+        
+        address a:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FF359A;
+            transition: width 0.3s ease;
+        }
+        
+        address a:hover {
+            color: #FF0066;
+            transform: translateY(-3px);
+        }
+        
+        address a:hover:after {
+            width: 100%;
+        }
+        
+        /* 可愛的分隔線 */
+        hr {
+            border: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #FF359A, transparent);
+            margin: 40px 0;
+            border-radius: 50%;
+        }
+        
+        /* 動畫效果 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-5deg); }
+        }
+        
+        @keyframes popIn {
+            0% { transform: translateX(-50%) scale(0.5); opacity: 0; }
+            100% { transform: translateX(-50%) scale(1); opacity: 1; }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
+        }
+        
+        /* 魔法星星效果 */
+        .magic-star {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23FF359A" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>');
+            background-size: contain;
+            z-index: -1;
+            opacity: 0;
+            animation: sparkle 3s infinite;
+        }
+        
+        /* 愛心飄落效果 */
+        .falling-hearts {
+            position: fixed;
+            top: -50px;
+            width: 30px;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff9ecb" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+            background-size: contain;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 900px) {
+            body {
+                padding-left: 0;
+                padding-top: 70px;
+            }
+            
+            .navbar {
+                width: 100%;
+                height: auto;
+                bottom: 0;
+                top: auto;
+                border-right: none;
+                border-top: 5px solid #FF359A;
+                padding: 10px 5px;
+                overflow-x: auto;
+                backdrop-filter: none;
+            }
+            
+            .navbar ul {
+                display: flex;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+            
+            .navbar li {
+                flex: 0 0 auto;
+                margin-bottom: 0;
+                margin-right: 10px;
+            }
+            
+            .navbar button {
+                width: 140px;
+                height: 50px;
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 32px;
+                padding: 10px 20px;
+            }
+            
+            h2 {
+                font-size: 26px;
+            }
+            
+            #bottom-right-img {
+                width: 150px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+            
+            h2 {
+                font-size: 22px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+            
+            #bottom-right-img {
+                width: 120px;
+            }
+            
+            .bouncing-img {
+                width: 80px;
+            }
+            
+            .section {
+                padding: 20px 15px;
+            }
+        }
+        
+        /* 自定義滾動條 */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #ffcce6;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #FF359A;
+            border-radius: 10px;
+            border: 2px solid #ffcce6;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF0066;
+        }
+        
+        /* 可愛的標記樣式 */
+        .cute-mark {
+            display: inline-block;
+            background: #FFAAD5;
+            color: #FF0066;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            margin-right: 10px;
+            box-shadow: 0 3px 5px rgba(255, 0, 102, 0.2);
+        }
+        
+        /* 對話框樣式 */
+        .speech-bubble {
+            position: relative;
+            background: #ffcce6;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 3px solid #FF6BB5;
+            box-shadow: 0 5px 10px rgba(255, 107, 181, 0.2);
+        }
+        
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            border: 10px solid transparent;
+            border-top-color: #FF6BB5;
+            margin-left: -10px;
+        }
+        
+        /* 裝飾性圖標 */
+        .decoration-icon {
+            position: absolute;
+            font-size: 24px;
+            color: #FF359A;
+            animation: spin 4s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 魔法背景 -->
+    <div class="magic-bg"></div>
+    
+    <!-- 左側導航欄 -->
+    <nav class="navbar">
+        <ul>
+            <li><button onclick="scrollToSection('header')"><i class="fas fa-star"></i> 網頁頂端</button></li>
+            <li><button onclick="scrollToSection('intro')"><i class="fas fa-heart"></i> 角色介紹</button></li>
+            <li><button onclick="scrollToSection('personality')"><i class="fas fa-smile"></i> 角色個性</button></li>
+            <li><button onclick="scrollToSection('appearance')"><i class="fas fa-tshirt"></i> 外貌穿著</button></li>
+            <li><button onclick="scrollToSection('declaration')"><i class="fas fa-magic"></i> 中二宣言</button></li>
+            <li><button onclick="scrollToSection('story')"><i class="fas fa-film"></i> 動畫劇情</button></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- 頁首 -->
+        <header id="header" class="section center-title">
+            <h1>七宮智音 (Shimiya Satone)</h1>
+            <a href="https://truth.bahamut.com.tw/s01/201403/f49dd293cd050466c5d99d7cd260e557.JPG">
+                <img src="f49dd293cd050466c5d99d7cd260e557.jpg" alt="七宮智音" class="main-image">
+            </a>
+            <p>圖源: 巴哈姆特</p>
+            
+            <div class="speech-bubble">
+                <p>「有沒有哭泣，心痛不痛？這就是與天使的作戰喔！」</p>
+            </div>
+        </header>
+
+        <hr>
+
+        <!-- 角色介紹 -->
+        <section id="intro" class="section">
+            <div class="center-title">
+                <h2><span class="cute-mark">❤</span>角色介紹</h2>
+            </div>
+            <p>是動畫《中二病也要談戀愛！》的角色，她是富樫勇太的童年好友。智音和勇太一樣，曾經是一名"中二病"患者，
+                自稱為"蘇菲婭寧·SP·撒旦七世"、"魔法魔王少女索菲亞"、"管理魔王魔法七聖地的少女"等稱號，並使用幻想力量
+                來逃避現實生活的挑戰和困難。兒時沉溺於幻想，而成為了中二病患者，也把中二思想過分的帶入生活中，和富樫
+                勇太關係十分好。以前和富樫勇太在一起的時候就已經對勇太充滿了好感，只是表現完全不坦率，一直都沒有將自
+                己的心聲說出來。</p>
+        </section>
+
+        <!-- 角色個性 -->
+        <section id="personality" class="section">
+            <div class="center-title">
+                <h2><span class="cute-mark">❤</span>角色個性</h2>
+            </div>
+            <p>個性開朗且有些笨拙，是一個善良到連惡魔都忍不住傷害的女孩。喜歡將"有沒有哭泣，心痛不痛"看作與天使的作戰。
+                十分樂天，雖然十分中二，但有著比同齡人還要成熟的情感觀。她是一個充滿幻想和活力的人，總是以中二的姿態面
+                對世界。雖然她表現得很開心，但她內心其實隱藏著對勇太的感情，並且面臨著接受現實和維持幻想之間的掙扎。</p>
+        </section>
+
+        <!-- 外貌穿著 -->
+        <section id="appearance" class="section">
+            <div class="center-title">
+                <h2><span class="cute-mark">❤</span>外貌穿著</h2>
+            </div>
+            <p>智音有著粉紅色的頭髮綁成了雙環結構（環形辮），裝扮有貓咪髮卡、稍微改造成了魔法魔王少女樣式的制服、繫著好
+                像魔物般的長圍巾（第二次出現因為太熱了沒有帶）、黑色長筒襪、腰間有一個一直帶著的貓狀小袋子、裙子下面有短
+                短的黑色的短裹腿恤，比起雙馬尾，其實更喜歡側馬尾髮型。但因為執著於中二病，而以雙馬尾的髮型示人，她十分喜
+                歡各種帶有奇幻氣息的服飾品，身上也經常帶著魔法棒。</p>
+        </section>
+
+        <!-- 中二宣言 -->
+        <section id="declaration" class="section">
+            <div class="center-title">
+                <h2><span class="cute-mark">❤</span>中二宣言</h2>
+            </div>
+            <p class="center-title">Cherub（智天使）</p>
+            <p class="center-title">詠唱:Seraph（熾天使）</p>
+            <p class="center-title">降臨:Physical Linkage（世間萬物為我所用）</p>
+        </section>
+
+        <!-- 動畫劇情 -->
+        <section id="story" class="section">
+            <div class="center-title">
+                <h2><span class="cute-mark">❤</span>動畫劇情</h2>
+            </div>
+            <p>在動畫第二季中，在動畫第二季《中二病也要談戀愛！戀》中，智音轉學到勇太的學校，重新出現在他的生活中。雖然
+                他們的友誼迅速恢復，但智音逐漸發現，勇太已經和另一名女孩，小鳥遊六花，建立了特殊的感情。這讓智音不得不面
+                對自己內心深處一直隱藏的情感——她對勇太的愛慕之情。智音在多年以來一直把這份感情埋藏在心中，而與勇太的再次
+                相遇讓她不得不直視這段未曾表露的愛。智音的最大掙扎在於她對勇太的感情以及她對"中二病"幻想世界的依戀。她始
+                終抱著中二病的幻想，作為一種逃避現實的方式。對於智音而言，"蘇菲婭寧·SP·撒旦七世"的身份讓她有勇氣面對現實
+                中的困難。然而，當她發現勇太已經在現實世界中找到了另一個依靠（六花），她開始動搖，這使得她必須在維持幻想
+                與面對現實之間做出選擇。在經歷了與勇太和六花的互動後，智音最終選擇了接受現實，並決定放下對勇太的愛慕。這
+                對她來說是一個艱難的過程，但同時也是她個人成長的標誌。她明白到自己的感情無法得到回應，因此，她將這段愛情藏
+                在心底，繼續以她自己的方式生活下去。</p>
+        </section>
+
+        <!-- 頁腳 -->
+        <footer>
+            <address>
+                <p>如有版權及內容問題請點下方連結</p>
+                <a href="mailto:caiyoujia446@gmail.com"><i class="fas fa-envelope"></i> 聯繫作者</a>
+            </address>
+        </footer>
+    </div>
+
+    <!-- 右下角圖片 -->
+    <img src="4be48745e0bbaae97e2a4b4088c11845.png" alt="七宮智音" id="bottom-right-img">
+
+    <!-- 隱藏的文字圖片 -->
+    <img id="new-image" src="未命名設計.png" alt="七宮智音介紹">
+
+    <!-- 彈跳圖片 -->
+    <img src="02132439153c5ea319f9f396d19ba95b.png" class="bouncing-img" alt="魔法特效">
+
+    <!-- 音訊文件 -->
+    <audio id="audio-player">
+        <source src="005_春日部つむぎ（ノーマル）_私の名前はしちみや….wav" type="audio/wav">
+        您的瀏覽器不支持音訊元素。
+    </audio>
+
+    <script>
+        // 平滑滾動函數
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // 右下角圖片點擊事件
+        document.addEventListener("DOMContentLoaded", function() {
+            const img = document.getElementById('bottom-right-img');
+            const textImage = document.getElementById('new-image');
+            const audioPlayer = document.getElementById('audio-player');
+            
+            img.addEventListener('click', () => {
+                textImage.style.display = textImage.style.display === 'block' ? 'none' : 'block';
+                if (textImage.style.display === 'block') {
+                    audioPlayer.play();
+                    createHearts(20); // 點擊時創建愛心效果
+                } else {
+                    audioPlayer.pause();
+                    audioPlayer.currentTime = 0;
+                }
+            });
+            
+            // 彈跳圖片動畫
+            const bouncingImg = document.querySelector('.bouncing-img');
+            let posX = 100;
+            let posY = 100;
+            let velX = 2;
+            let velY = 2;
+            const imgWidth = bouncingImg.offsetWidth;
+            const imgHeight = bouncingImg.offsetHeight;
+
+            function moveImage() {
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+
+                posX += velX;
+                posY += velY;
+
+                if (posX + imgWidth >= windowWidth || posX <= 0) {
+                    velX = -velX;
+                }
+
+                if (posY + imgHeight >= windowHeight || posY <= 0) {
+                    velY = -velY;
+                }
+
+                bouncingImg.style.left = `${posX}px`;
+                bouncingImg.style.top = `${posY}px`;
+
+                requestAnimationFrame(moveImage);
+            }
+
+            moveImage();
+            
+            // 添加魔法星星效果
+            function createStars() {
+                const starsCount = 30;
+                for (let i = 0; i < starsCount; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'magic-star';
+                    star.style.left = `${Math.random() * 100}vw`;
+                    star.style.top = `${Math.random() * 100}vh`;
+                    star.style.animationDelay = `${Math.random() * 3}s`;
+                    document.body.appendChild(star);
+                }
+            }
+            
+            // 添加飄落愛心效果
+            function createHearts(count) {
+                for (let i = 0; i < count; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'falling-hearts';
+                        heart.style.left = `${Math.random() * 100}vw`;
+                        heart.style.animation = `fall ${Math.random() * 3 + 3}s linear forwards`;
+                        
+                        document.body.appendChild(heart);
+                        
+                        // 設置動畫
+                        const keyframes = `@keyframes fall-${i} {
+                            from { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+                            to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+                        }`;
+                        
+                        const style = document.createElement('style');
+                        style.innerHTML = keyframes;
+                        document.head.appendChild(style);
+                        
+                        heart.style.animation = `fall-${i} ${Math.random() * 3 + 3}s linear forwards`;
+                        
+                        // 動畫結束後移除元素
+                        setTimeout(() => {
+                            heart.remove();
+                        }, 5000);
+                    }, i * 300);
+                }
+            }
+            
+            // 持續飄落愛心
+            setInterval(() => {
+                createHearts(3);
+            }, 3000);
+            
+            createStars();
+            createHearts(10);
+            
+            // 添加裝飾圖標
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const icon = document.createElement('i');
+                icon.className = 'decoration-icon fas fa-star';
+                icon.style.top = `${Math.random() * 50 + 10}px`;
+                icon.style.right = `${Math.random() * 50 + 10}px`;
+                section.appendChild(icon);
+            });
+        });
+    </script>
+</body>
+</html>
